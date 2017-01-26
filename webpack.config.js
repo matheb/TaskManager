@@ -1,6 +1,6 @@
 module.exports = {
   entry: {
-    app: './public/todo.js',
+    app: './app/app.js',
     // vendor: ['angular']
   },
   output: {

@@ -1,0 +1,42 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+#login-box, #reg-window {
+  input {
+    margin-bottom: 10px;
+  }
+
+}
+
+.signup {
+  text-align: center;
+  margin: 0px;
+  padding: 2px;
+  &:hover {
+    font-weight: bold;
+    color: white;
+  }
+  &:active {
+    color: grey;
+  }
+}
+
+#lock-icon::before {
+  vertical-align: top;
+  margin-bottom: 10px;
+}
+
+// .login-window {
+//   width: 40%;
+//   align-items: center;
+//   padding: 30px;
+//   float: right;
+//
+//   h2 {
+//     text-transform: uppercase;
+//   }
+// }
