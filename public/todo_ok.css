@@ -1,0 +1,163 @@
+body, div, button, img, section, h1, p, h2, input {
+  border: 0px;
+  padding: 0px;
+  margin: 0px;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(80, 227, 194);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.everythin {
+  margin-top: 50px;
+  width: 460px;
+  padding-bottom: 30px;
+  margin-bottom: 100px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  background-color: rgb(247, 247, 247);
+  box-shadow: 8px 8px 3px -3px rgba(138,136,138,1);
+};
+
+form {
+  width: 460px;
+  height: 550px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  padding-top: 50px;
+  padding-bottom: 60px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  font-size: 50px;
+  color: rgb(155, 155, 155);
+}
+
+.input[type='text'] {
+  border-radius: 3px;
+  padding: 0px;
+  margin: 0px;
+  height: 46px;
+  width: 360px;
+  border: 2px solid rgb(206, 206, 206);
+  box-shadow: inset 1px 1px 6px -3px rgba(0,0,0,0.75);
+}
+
+.input_field {
+  position: relative;
+  left: 50px;
+  display: flex;
+  justify-content: center;
+  padding: 0px;
+  margin: 0px;
+  height: 50px;
+  width: 360px;
+
+}
+
+.add {
+  height: 50px;
+  width: 75px;
+  margin-left: 3px;
+  position: relative;
+  right: 5px;
+  bottom: 0px;
+  border: 2px solid rgb(206, 206, 206);
+  box-shadow: inset 1px 1px 6px -3px rgba(0,0,0,0.75);
+  background-color: rgb(223, 105, 232);
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: #ffffff;
+}
+
+.add:hover{
+  opacity: 0.7;
+}
+
+.add:active {
+  background-color: rgb(233, 115, 242);
+  outline: 'none';
+}
+
+.todo_list {
+  text-align: center;
+  width: 360px;
+  padding-left: 50px;
+  padding-top: 20px;
+}
+
+.todo_item {
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row;
+  width: 345px;
+  height: 30px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 10px;
+  overflow: hidden;
+}
+
+label {
+  font-family: Lato-Regular, sans-serif;
+  font-size: 20px;
+  line-height: 1;
+  color: #cecece;
+}
+
+.del_icon, .complete{
+  height: 20px;
+  width: 20px;
+  background: transparent;
+}
+
+.del {
+  background: transparent;
+}
+
+.del:hover {
+  opacity: 0.6;
+  color: rgb(66, 229, 244);
+  transform: scale(1.3);
+  transition: transform 0.1s;
+}
+
+.complete {
+  margin-left: 10px;
+  margin-top: 2px;
+  color: rgb(247, 247, 247);
+  border-radius: 50%;
+  border: 1px solid grey;
+  z-index: 2;
+  box-shadow: inset 1px 1px 2px 0px rgba(160,160,160,0.5);
+}
+
+.complete:hover, .complete:active, .checked{
+  background-color: rgb(223, 105, 232);
+  opacity: 1;
+  color: white;
+}
+
+.complete .checked{
+  background-color: rgb(223, 105, 232);
+  opacity: 1;
+  color: white;
+}
+
+.checking {
+  display: flex;
+  justify-content: flex-end;
+}
+
+buttom:hover, buttom:active {
+  outline: none;
+}
