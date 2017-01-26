@@ -35,7 +35,7 @@ body {
   margin-right: 0px;
 }
 
-.four.wide.column {
+.ui.icon.menu {
   display: flex;
   flex-flow: column;
   .item {
@@ -53,11 +53,6 @@ body {
 }
 
 #list-items {
-  width: 80%;
-}
-
-.task.ui.item {
-  margin-left: 20px;
   width: 100%;
 }
 
