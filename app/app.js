@@ -11,7 +11,7 @@ require('../node_modules/semantic-ui/dist/components/accordion.css');
 require('../node_modules/semantic-ui/dist/components/popup.css');
 
 require('../css/login.scss');
-require('../css/home.scss');
+require('../css/todo.scss');
 
 
 var taskManager = angular.module('taskManager', ['ngRoute', 'ngAnimate', 'LoginController', 'HomeController', 'SignUpController']);
@@ -27,7 +27,7 @@ taskManager.config(['$routeProvider', function($routeProvider){
       controller: 'SignUpController',
     })
     .when('/home', {
-      templateUrl: 'views/home.html',
+      templateUrl: 'views/todo.html',
       controller: 'HomeController',
     }).otherwise({
       redirectTo: '/login',
