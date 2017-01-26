@@ -9,6 +9,7 @@ var SignUpController = require('./home.js');
 require('../node_modules/semantic-ui/dist/semantic.min.css');
 require('../node_modules/semantic-ui/dist/components/accordion.css');
 require('../node_modules/semantic-ui/dist/components/popup.css');
+require('../node_modules/semantic-ui/dist/components/modal.css');
 
 require('../css/login.scss');
 require('../css/todo.scss');
@@ -29,7 +30,8 @@ taskManager.config(['$routeProvider', function($routeProvider){
     .when('/home', {
       templateUrl: 'views/todo.html',
       controller: 'HomeController',
-    }).otherwise({
+    })
+    .otherwise({
       redirectTo: '/login',
     });
 }]);

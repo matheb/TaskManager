@@ -25,6 +25,40 @@ body {
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.5);
   padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+#order {
+  width: 20%;
+  padding-right: 0px;
+  margin-right: 0px;
+}
+
+.four.wide.column {
+  display: flex;
+  flex-flow: column;
+  .item {
+    background-color: rgba(255,255,255,0.8)!important;
+    &:hover {
+      background-color: #fff4a5!important;
+    }
+    &:active {
+      background-color: lightgrey!important;
+    }
+  }
+  .item.active {
+    background-color: orange!important;
+  }
+}
+
+#list-items {
+  width: 80%;
+}
+
+.task.ui.item {
+  margin-left: 20px;
+  width: 100%;
 }
 
 .task {
@@ -93,5 +127,32 @@ body {
   }
   &:active {
     background-color: green;
+  }
+}
+
+#alarm {
+  visibility: hidden;
+  position: fixed;
+  padding: 0px;
+  margin: 0px;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  i {
+    height: 300px!important;
+    width: 300px!important;
+    &::before {
+      font-size: 200px;
+    }
+  }
+  .ui.header {
+    font-family: 'Dancing Script', cursive;
+    font-size: 50px;
   }
 }
