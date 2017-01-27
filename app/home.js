@@ -23,7 +23,6 @@ module.exports = angular.module('HomeController', ['ngRoute', 'ngAnimate']).cont
         url: 'https://taskmanager-backend.gomix.me/tasks',
       }).then(function (data) {
         $scope.tasks = data.data;
-        console.log($scope.tasks);
       }).catch(function (data) {
         console.log('error');
       })
@@ -94,6 +93,24 @@ module.exports = angular.module('HomeController', ['ngRoute', 'ngAnimate']).cont
     })
   }
 
+  $scope.checkTask = function(id, checked){
+    var check = 0;
+    if (checked === 0){
+      check = 1;
+    }
+    $http({
+      method: 'POST',
+      data: {
+        id: id,
+        checked: check
+      },
+      url: 'https://taskmanager-backend.gomix.me/checktask',
+    }).then(function (data) {
+      $scope.listTasks();
+    }).catch(function (data) {
+      console.log('error');
+    })
+  }
 
 }]);
 

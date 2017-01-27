@@ -87,7 +87,7 @@
             {{task.date}}
           </div>
           <div class="right floated content" style="padding-left: 50px">
-            <i class="ui circular checkmark icon"></i>
+            <i type="checkbox" class="ui circular checkmark icon" ng-click="checkTask(task.id, task.checked)"></i>
           </div>
           <div class="right floated content">
             <i class="ui circular remove icon" ng-click="deleteTask(task.id)"></i>
