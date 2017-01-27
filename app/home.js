@@ -49,7 +49,6 @@ module.exports = angular.module('HomeController', ['ngRoute', 'ngAnimate']).cont
         url: 'https://taskmanager-backend.gomix.me/addtask',
       }).then(function (data) {
         $scope.listTasks();
-        localStorage.token = '';
         $scope.task_name = '';
         $scope.type = '';
         $scope.date = '';
