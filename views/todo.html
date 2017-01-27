@@ -69,76 +69,22 @@
         </a>
       </div>
 
-      <a class="ui button item" style="padding-bottom: 0px; vertical-align: middle">Log out</a>
+      <a class="ui button item" style="padding-bottom: 0px; vertical-align: middle" ng-click="logout()">Log out</a>
 
     </div>
 
     <div id="tasklist">
 
       <div id="list-items">
-        <div class="task ui item" data-tooltip="Description of the task. Description of the task. Description of the task. Description of the task" data-variation="small" style="border-bottom: 1px solid grey; display: flex; flex-flow: row; justify-content: space-between">
+        <div class="task ui item" data-tooltip="{{task.description}}" data-variation="small" ng-repeat="task in tasks" style="border-bottom: 1px solid grey; display: flex; flex-flow: row; justify-content: space-between">
           <div class="tag left floated content">
             <i class="ui sun icon"></i>
           </div>
           <div class="description left floated content">
-            Todo rövid leírása
+            {{task.task_name}}
           </div>
           <div class="deadline right floated content">
-            Deadline
-          </div>
-          <div class="right floated content" style="padding-left: 50px">
-            <i class="ui circular checkmark icon"></i>
-          </div>
-          <div class="right floated content">
-            <i class="ui circular remove icon"></i>
-          </div>
-        </div>
-
-        <div class="task ui item" data-tooltip="Description of the task. Description of the task. Description of the task. Description of the task" data-variation="small" style="border-bottom: 1px solid grey; display: flex; flex-flow: row; justify-content: space-between">
-          <div class="tag left floated content">
-            <i class="ui sun icon"></i>
-          </div>
-          <div class="description left floated content">
-            Todo rövid leírása
-          </div>
-          <div class="deadline right floated content">
-            Deadline
-          </div>
-          <div class="right floated content" style="padding-left: 50px">
-            <i class="ui circular checkmark icon"></i>
-          </div>
-          <div class="right floated content">
-            <i class="ui circular remove icon"></i>
-          </div>
-        </div>
-
-        <div class="task ui item" data-tooltip="Description of the task. Description of the task. Description of the task. Description of the task" data-variation="small" style="border-bottom: 1px solid grey; display: flex; flex-flow: row; justify-content: space-between">
-          <div class="tag left floated content">
-            <i class="ui sun icon"></i>
-          </div>
-          <div class="description left floated content">
-            Todo rövid leírása
-          </div>
-          <div class="deadline right floated content">
-            Deadline
-          </div>
-          <div class="right floated content" style="padding-left: 50px">
-            <i class="ui circular checkmark icon"></i>
-          </div>
-          <div class="right floated content">
-            <i class="ui circular remove icon"></i>
-          </div>
-        </div>
-
-        <div class="task ui item" data-tooltip="Description of the task. Description of the task. Description of the task. Description of the task" data-variation="small" style="border-bottom: 1px solid grey; display: flex; flex-flow: row; justify-content: space-between">
-          <div class="tag left floated content">
-            <i class="ui sun icon"></i>
-          </div>
-          <div class="description left floated content">
-            Todo rövid leírása
-          </div>
-          <div class="deadline right floated content">
-            Deadline
+            {{task.date}}
           </div>
           <div class="right floated content" style="padding-left: 50px">
             <i class="ui circular checkmark icon"></i>

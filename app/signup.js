@@ -8,19 +8,21 @@ module.exports = angular.module('SignUpController', ['ngRoute', 'ngAnimate']).co
           email: $scope.user.email,
           password: $scope.user.password,
         },
-        url: 'https://taskmanager-backend.gomix.me/3000/registration',
+        url: 'https://taskmanager-backend.gomix.me/registration',
       }).then(function (data) {
-        let respond = (data.data);
-        if (respond.result === 'success') {
-          localStorage.setItem("token", respond.token);
+        var respond = data.data;
+        //console.log(respond);
+        // let respond = (data.data);
+        if (respond !== '') {
+          localStorage.setItem("token", respond);
           $location.path('/home');
         } else {
-          alert(respond.message);
+          alert('error');
         }
       }).catch(function (data) {
         console.log('error');
       })
     }
   }
-
+  
 }]);

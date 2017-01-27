@@ -12,12 +12,10 @@ module.exports = angular.module('LoginController', ['ngRoute', 'ngAnimate']).con
         },
         url: 'https://taskmanager-backend.gomix.me/login',
       }).then(function (data) {
-        var respond = data;
+        var respond = data.data;
         if (respond !== '') {
-          // console.log(respond.token);
           console.log(respond);
-          localStorage.setItem("token", respond.token);
-          // console.log(localStorage);
+          localStorage.setItem("token", respond);
           $location.path('/home');
         }
       }).catch(function (data) {
