@@ -37,7 +37,7 @@ module.exports = angular.module('HomeController', ['ngRoute', 'ngAnimate']).cont
   $scope.setOrder = function(order){
     // console.log(order);
     if (order =='time') {
-      $scope.order = 'time';
+      $scope.order = 'date';
     } else if (order == 'priority'){
       $scope.order = 'priority';
     } else if (order == 'type'){
