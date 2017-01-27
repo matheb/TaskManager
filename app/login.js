@@ -10,12 +10,12 @@ module.exports = angular.module('LoginController', ['ngRoute', 'ngAnimate']).con
           email: $scope.user.email,
           password: $scope.user.password,
         },
-        url: 'http://localhost:3000/user/login',
+        url: 'https://taskmanager-backend.gomix.me/login',
       }).then(function (data) {
-        var respond = (data.data);
-        if (respond.result === 'success') {
+        var respond = data;
+        if (respond !== '') {
           // console.log(respond.token);
-          // console.log(respond);
+          console.log(respond);
           localStorage.setItem("token", respond.token);
           // console.log(localStorage);
           $location.path('/home');
