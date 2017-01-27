@@ -31,7 +31,20 @@ module.exports = angular.module('HomeController', ['ngRoute', 'ngAnimate']).cont
 
   $scope.listTasks()
 
+  $scope.setOrder = function(order){
+    // console.log(order);
+    if (order =='time') {
+      $scope.order = 'time';
+    } else if (order == 'prioritiy'){
+      $scope.order = 'priority';
+    } else if (order == 'type'){
+      $scope.order = 'type';
+    }
+  }
+
   $scope.addTask = function() {
+    console.log($scope.date.getHours())
+    console.log($scope.date.getMinutes())
     if (localStorage.token !== '') {
       $http({
         method: 'POST',
@@ -64,12 +77,30 @@ module.exports = angular.module('HomeController', ['ngRoute', 'ngAnimate']).cont
   }
 
   $scope.makevisible = function(){
-    if($scope.visible == "visible"){
+    if($scope.visible == "active"){
       $scope.visible = "hidden";
     } else {
-      $scope.visible = "visible";
+      $scope.visible = "active";
     }
   }
+
+  $scope.menus = [
+    {
+      title: 'Time',
+      activated: 'active',
+      param: 'time'
+    },
+    {
+      title: 'Priority',
+      activated: '',
+      param: 'priority'
+    },
+    {
+      title: 'Category',
+      activated: '',
+      param: 'type'
+    }
+  ]
 
   $scope.clickitem = function($index){
     $scope.subscriptions.map( function ( folder ) {

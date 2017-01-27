@@ -43,7 +43,7 @@
             <label>Do you want to set a reminder?</label>
           </div>
           <div class="field">
-            <input type="date" ng-model="date">
+            <input type="time" ng-model="date">
           </div>
           <div class="ui red button" ng-click="addTask()">ADD</div>
         </div>
@@ -58,13 +58,16 @@
 
     <div id="order" style="display: flex; flex-flow: row; justify-content: space-between; width: 100%; " >
       <div class="ui icon menu" style="display: flex; flex-flow:row; margin: 0px">
-        <a class="active item">
+        <!-- <a class="{{menu.activated}} item"  ng-click="setOrder()" ng-repeat="menu in menus">
+          {{menu.title}}
+        </a> -->
+        <a class="{{visible}} item"  ng-click="setOrder('time')" ng-click="makevisible()">
           Time
         </a>
-        <a class="item">
+        <a class="{{visible}} item" ng-click="setOrder('name')" ng-click="makevisible()">
           Priority
         </a>
-        <a class="item">
+        <a class="{{visible}} item" ng-click="setOrder('type')" ng-click="makevisible()">
           Category
         </a>
       </div>
@@ -76,15 +79,15 @@
     <div id="tasklist">
 
       <div id="list-items">
-        <div class="task ui item" data-tooltip="{{task.description}}" data-variation="small" ng-repeat="task in tasks" style="border-bottom: 1px solid grey; display: flex; flex-flow: row; justify-content: space-between">
+        <div class="task ui item" data-tooltip="{{task.description}}" data-variation="small" ng-repeat="task in tasks | orderBy: order" style="border-bottom: 1px solid grey; display: flex; flex-flow: row; justify-content: space-between">
           <div class="tag left floated content">
             <i class="ui sun icon"></i>
           </div>
-          <div class="description left floated content">
+          <div class="description left floated content" style="width: 200px; text-align: center">
             {{task.task_name}}
           </div>
-          <div class="deadline right floated content">
-            {{task.date}}
+          <div class="deadline right floated content" style="width: 400px; text-align: center">
+            {{task.date |  date : 'HH:mm'}}
           </div>
           <div class="right floated content" style="padding-left: 50px">
             <i type="checkbox" class="ui circular checkmark icon" ng-click="checkTask(task.id, task.checked)"></i>
