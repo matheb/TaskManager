@@ -14,6 +14,8 @@
       }).then(function (data) {
         var respond = data.data;
         if (respond !== '') {
+
+          console.log(respond);
           localStorage.setItem("token", respond);
           $location.path('/home');
         }
