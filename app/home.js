@@ -37,12 +37,27 @@ module.exports = angular.module('HomeController', ['ngRoute', 'ngAnimate']).cont
       $http({
         method: 'POST',
         data: {
-          token: localStorage.token
+          token: localStorage.token,
+          task_name: $scope.task_name,
+          type: $scope.type,
+          date: $scope.date,
+          description: $scope.description,
+          priority: $scope.priority,
+          reminder: $scope.checked,
+          checked: $scope.checked
         },
-        url: 'https://taskmanager-backend.gomix.me/tasks',
+        url: 'https://taskmanager-backend.gomix.me/addtask',
       }).then(function (data) {
-        $scope.tasks = data.data;
-        console.log($scope.tasks);
+        $scope.listTasks();
+        $scope.task_name = '';
+        $scope.type = '';
+        $scope.date = '';
+        $scope.description = '';
+        $scope.priority = '';
+        $scope.checked = '';
+        $scope.checked = '';
+        // $scope.tasks = data.data;
+        // console.log($scope.tasks);
       }).catch(function (data) {
         console.log('error');
       })
