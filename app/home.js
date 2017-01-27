@@ -44,6 +44,8 @@ module.exports = angular.module('HomeController', ['ngRoute', 'ngAnimate']).cont
   }
 
   $scope.addTask = function() {
+    console.log($scope.date.getHours())
+    console.log($scope.date.getMinutes())
     if (localStorage.token !== '') {
       $http({
         method: 'POST',

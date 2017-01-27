@@ -43,7 +43,7 @@
             <label>Do you want to set a reminder?</label>
           </div>
           <div class="field">
-            <input type="date" ng-model="date">
+            <input type="time" ng-model="date">
           </div>
           <div class="ui red button" ng-click="addTask()">ADD</div>
         </div>
@@ -87,7 +87,7 @@
             {{task.task_name}}
           </div>
           <div class="deadline right floated content" style="width: 400px; text-align: center">
-            {{task.date}}
+            {{task.date |  date : 'HH:mm'}}
           </div>
           <div class="right floated content" style="padding-left: 50px">
             <i class="ui circular checkmark icon"></i>
