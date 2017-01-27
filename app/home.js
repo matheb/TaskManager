@@ -6,7 +6,7 @@ module.exports = angular.module('HomeController', ['ngRoute', 'ngAnimate']).cont
     };
   };
 
-  // $scope.checkToken();
+  $scope.checkToken();
 
   $scope.logout = function(){
     localStorage.clear();
@@ -78,7 +78,7 @@ module.exports = angular.module('HomeController', ['ngRoute', 'ngAnimate']).cont
       console.log('error');
     })
   }
-  
+
 
 }]);
 
