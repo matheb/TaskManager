@@ -1,4 +1,7 @@
-module.exports = angular.module('HomeController', ['ngRoute', 'ngAnimate']).controller('HomeController', ['$scope', '$http', '$location', function ($scope, $http, $location) {
+module.exports = angular.module('HomeController', ['ngRoute', 'ngAnimate']).controller('HomeController', ['$scope', '$http', '$location', '$interval', function ($scope, $http, $location, $interval) {
+
+  $scope.times = [];
+  $scope.activated = '';
 
   $scope.checkToken = function ($routeProvider){
     if (localStorage.length === 0) {
@@ -77,6 +80,25 @@ module.exports = angular.module('HomeController', ['ngRoute', 'ngAnimate']).cont
     }
   }
 
+  $scope.timeList = function(time){
+    $scope.times.push(time);
+    console.log($scope.times)
+    $interval($scope.compare, 1000);
+  }
+
+  $scope.compare = function(){
+    $scope.times.forEach(function(element){
+      //console.log('interval')
+      var element = new Date(element)
+      var now = new Date();
+      // console.log(element);
+      // console.log(now);
+      if (element.getHours() == now.getHours() && element.getMinutes() == now.getMinutes() && element.getSeconds() == now.getSeconds()){
+        $scope.activated = 'visible';
+      }
+    })
+  }
+
   $scope.makevisible = function(){
     if($scope.visible == "active"){
       $scope.visible = "hidden";
@@ -123,6 +145,10 @@ module.exports = angular.module('HomeController', ['ngRoute', 'ngAnimate']).cont
     }).catch(function (data) {
       console.log('error');
     })
+  }
+
+  $scope.makeinactive = function(){
+    $scope.activated = '';
   }
 
 

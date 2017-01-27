@@ -79,7 +79,7 @@
     <div id="tasklist">
 
       <div id="list-items">
-        <div class="task ui item" data-tooltip="{{task.description}}" data-variation="small" ng-repeat="task in tasks | orderBy: order" style="border-bottom: 1px solid grey; display: flex; flex-flow: row; justify-content: space-between">
+        <div class="task ui item" data-tooltip="{{task.description}}" data-variation="small" ng-repeat="task in tasks | orderBy: order" ng-init="timeList(task.date)" style="border-bottom: 1px solid grey; display: flex; flex-flow: row; justify-content: space-between">
           <div class="tag left floated content">
             <i class="ui sun icon"></i>
           </div>
@@ -108,7 +108,7 @@
 
 
 
-<div id="alarm" class="ui basic modal center aligned" style="display: flex; flex-flow: row;">
+<div id="alarm" class="ui basic modal center aligned" style="display: flex; flex-flow: row; visibility: {{activated}}" ng-click="makeinactive()">
   <h2 class="ui header" style="padding-right: 10%">
     ALARM
   </h2>
