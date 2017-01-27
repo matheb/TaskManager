@@ -79,7 +79,7 @@
     <div id="tasklist">
 
       <div id="list-items">
-        <div class="task ui item" data-tooltip="{{task.description}}" data-variation="small" ng-repeat="task in tasks | orderBy: order" style="border-bottom: 1px solid grey; display: flex; flex-flow: row; justify-content: space-between">
+        <div class="task ui item {{task.checked === 0 ? '' : 'checked'}}" data-tooltip="{{task.description}}" data-variation="small" ng-repeat="task in tasks | orderBy: order" style="border-bottom: 1px solid grey; display: flex; flex-flow: row; justify-content: space-between">
           <div class="tag left floated content">
             <i class="ui sun icon"></i>
           </div>

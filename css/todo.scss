@@ -68,7 +68,13 @@ body {
     }
   }
 }
-
+.checked {
+  color: #56987c;
+  background-color: #d7c782;
+  .checkmark.icon {
+    color: #56987c;
+  }
+}
 .description, .deadline, .tag {
   font-size: 18px;
   font-weight: bold;
