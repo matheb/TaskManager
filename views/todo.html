@@ -9,10 +9,10 @@
       <div class="ui form">
         <div class="first-line">
           <div class="field">
-            <input type="text" placeholder="new task">
+            <input type="text" placeholder="new task" ng-model="task_name">
           </div>
           <div class="field">
-            <select class="ui search dropdown">
+            <select class="ui search dropdown" ng-model="type">
               <option value="">choose category</option>
               <option value="housework">housework</option>
               <option value="shopping">shopping</option>
@@ -27,7 +27,7 @@
             </select>
           </div>
           <div class="field">
-            <select class="ui search dropdown">
+            <select class="ui search dropdown" ng-model="priority">
               <option value="">choose priority</option>
               <option value="high">high</option>
               <option value="important">important</option>
@@ -36,16 +36,16 @@
             </select>
           </div>
         </div>
-        <textarea input="text" placeholder="some more details" style="height: 40px;"></textarea>
+        <textarea input="text" placeholder="some more details" style="height: 40px;" ng-model="description"></textarea>
         <div class="bottom-line">
           <div class="ui checkbox">
-            <input type="checkbox" required>
+            <input type="checkbox" required ng-model="checked">
             <label>Do you want to set a reminder?</label>
           </div>
           <div class="field">
-            <input type="date">
+            <input type="date" ng-model="date">
           </div>
-          <div class="ui red button">ADD</div>
+          <div class="ui red button" ng-click="addTask()">ADD</div>
         </div>
       </div>
     </div>
