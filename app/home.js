@@ -38,7 +38,7 @@ module.exports = angular.module('HomeController', ['ngRoute', 'ngAnimate']).cont
     // console.log(order);
     if (order =='time') {
       $scope.order = 'time';
-    } else if (order == 'prioritiy'){
+    } else if (order == 'priority'){
       $scope.order = 'priority';
     } else if (order == 'type'){
       $scope.order = 'type';
@@ -94,6 +94,8 @@ module.exports = angular.module('HomeController', ['ngRoute', 'ngAnimate']).cont
       // console.log(now);
       if (element.getHours() == now.getHours() && element.getMinutes() == now.getMinutes() && element.getSeconds() == now.getSeconds()){
         $scope.activated = 'visible';
+        var audio = new Audio('alarm2.mp3');
+        audio.play();
       }
     })
   }

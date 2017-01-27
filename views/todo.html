@@ -64,7 +64,7 @@
         <a class="{{visible}} item"  ng-click="setOrder('time')" ng-click="makevisible()">
           Time
         </a>
-        <a class="{{visible}} item" ng-click="setOrder('name')" ng-click="makevisible()">
+        <a class="{{visible}} item" ng-click="setOrder('priority')" ng-click="makevisible()">
           Priority
         </a>
         <a class="{{visible}} item" ng-click="setOrder('type')" ng-click="makevisible()">
@@ -80,7 +80,7 @@
 
       <div id="list-items">
 
-        <div class="task ui item {{task.checked === 0 ? '' : 'checked'}}" data-tooltip="{{task.description}}" data-variation="small" ng-repeat="task in tasks | orderBy: order" style="border-bottom: 1px solid grey; display: flex; flex-flow: row; justify-content: space-between">
+        <div class="task ui item {{task.checked === 0 ? '' : 'checked'}}" data-tooltip="{{task.description}}" data-variation="small" ng-repeat="task in tasks | orderBy: order" style="border-bottom: 1px solid grey; display: flex; flex-flow: row; justify-content: space-between" ng-init="timeList(task.date)">
 
           <div class="tag left floated content">
             <i class="ui sun icon"></i>
