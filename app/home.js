@@ -6,7 +6,7 @@ module.exports = angular.module('HomeController', ['ngRoute', 'ngAnimate']).cont
     };
   };
 
-  $scope.checkToken();
+  // $scope.checkToken();
 
   $scope.logout = function(){
     localStorage.clear();
@@ -65,10 +65,6 @@ module.exports = angular.module('HomeController', ['ngRoute', 'ngAnimate']).cont
     }
   }
 
-
-
-
-
   $scope.makevisible = function(){
     if($scope.visible == "visible"){
       $scope.visible = "hidden";
@@ -84,33 +80,21 @@ module.exports = angular.module('HomeController', ['ngRoute', 'ngAnimate']).cont
     $scope.subscriptions[ $index ].active = true;
   }
 
-  $scope.getSubscription = function () {
-    console.log(localStorage)
+  $scope.deleteTask = function(id){
+    console.log(id)
     $http({
-      method: 'GET',
-      url: 'http://localhost:3000/subscription',
+      method: 'POST',
+      data: {
+        id: id
+      },
+      url: 'https://taskmanager-backend.gomix.me/deletetask',
     }).then(function (data) {
-      $scope.subscriptions = data.data;
-
+      $scope.listTasks();
     }).catch(function (data) {
       console.log('error');
-    });
-  };
+    })
+  }
 
-  $scope.getFeed = function () {
-    $http({
-      method: 'GET',
-      url: 'http://localhost:3000/feed/43673',
-    }).then(function (data) {
-      $scope.articles = (data.data);
-
-    }).catch(function (data) {
-      console.log('error');
-    });
-  };
-
-  $scope.getSubscription();
-  $scope.getFeed();
 
 }]);
 
