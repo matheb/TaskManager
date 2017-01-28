@@ -26,6 +26,8 @@ module.exports = angular.module('HomeController', ['ngRoute', 'ngAnimate']).cont
         url: 'https://taskmanager-backend.gomix.me/tasks',
       }).then(function (data) {
         $scope.tasks = data.data;
+        $scope.icon = $scope.setIcon(type);
+        console.log($scope.tasks);
       }).catch(function (data) {
         console.log('error');
       })
@@ -43,11 +45,16 @@ module.exports = angular.module('HomeController', ['ngRoute', 'ngAnimate']).cont
     } else if (order == 'type'){
       $scope.order = 'type';
     }
+    else if (order == 'checked'){
+      $scope.order = 'checked';
+    }
   }
+
 
   $scope.addTask = function() {
     console.log($scope.date.getHours())
     console.log($scope.date.getMinutes())
+    console.log($scope.priority);
     if (localStorage.token !== '') {
       $http({
         method: 'POST',
@@ -82,6 +89,7 @@ module.exports = angular.module('HomeController', ['ngRoute', 'ngAnimate']).cont
   $scope.timeList = function(time){
     $scope.times.push(time);
     console.log($scope.times)
+
     $interval($scope.compare, 1000);
   }
 
@@ -94,11 +102,25 @@ module.exports = angular.module('HomeController', ['ngRoute', 'ngAnimate']).cont
       // console.log(now);
       if (element.getHours() == now.getHours() && element.getMinutes() == now.getMinutes() && element.getSeconds() == now.getSeconds()){
         $scope.activated = 'visible';
-        var audio = new Audio('alarm2.mp3');
+        var audio = new Audio('Wake-up-sounds.mp3');
         audio.play();
       }
     })
   }
+
+  // $scope.colorize = function(priority){
+  //   if (priority === 1){
+  //     $scope.color = 'red';
+  //   } else if (priority === 2) {
+  //     $scope.color = 'orange';
+  //   } else if (priority === 3) {
+  //     $scope.color = 'yellow';
+  //   } else if (priority === 4) {
+  //     $scope.color = 'white';
+  //   } else {
+  //     $scope.color = 'lightgrey';
+  //   }
+  // }
 
   $scope.makevisible = function(){
     if($scope.visible == "active"){
@@ -107,24 +129,6 @@ module.exports = angular.module('HomeController', ['ngRoute', 'ngAnimate']).cont
       $scope.visible = "active";
     }
   }
-
-  $scope.menus = [
-    {
-      title: 'Time',
-      activated: 'active',
-      param: 'time'
-    },
-    {
-      title: 'Priority',
-      activated: '',
-      param: 'priority'
-    },
-    {
-      title: 'Category',
-      activated: '',
-      param: 'type'
-    }
-  ]
 
   $scope.clickitem = function($index){
     $scope.subscriptions.map( function ( folder ) {

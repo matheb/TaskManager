@@ -32,12 +32,12 @@
               <option value="high">high</option>
               <option value="important">important</option>
               <option value="middle">middle</option>
-              <option value="middle">not so important</option>
+              <option value="not so important">not so important</option>
             </select>
           </div>
         </div>
         <textarea input="text" placeholder="some more details" style="height: 40px;" ng-model="description"></textarea>
-        <div class="bottom-line">
+        <div class="bottom-line" style="display: flex; flex-flow: row; justify-content: space-between">
           <div class="ui checkbox">
             <input type="checkbox" required ng-model="checked">
             <label>Do you want to set a reminder?</label>
@@ -70,6 +70,9 @@
         <a class="{{visible}} item" ng-click="setOrder('type')" ng-click="makevisible()">
           Category
         </a>
+        <a class="{{visible}} item" ng-click="setOrder('checked')" ng-click="makevisible()">
+          Done
+        </a>
       </div>
 
       <a class="ui button item" style="padding-bottom: 0px; vertical-align: middle" ng-click="logout()">Log out</a>
@@ -82,11 +85,30 @@
 
         <div class="task ui item {{task.checked === 0 ? '' : 'checked'}}" data-tooltip="{{task.description}}" data-variation="small" ng-repeat="task in tasks | orderBy: order" style="border-bottom: 1px solid grey; display: flex; flex-flow: row; justify-content: space-between" ng-init="timeList(task.date)">
 
-          <div class="tag left floated content">
-            <i class="ui sun icon"></i>
+          <div class="tag left floated content" ng-switch="task.type">
+            <i ng-switch-when="pet" class="ui paw icon"></i>
+            <i ng-switch-when="housework" class="ui trash outline icon"></i>
+            <i ng-switch-when="shopping" class="ui shop icon"></i>
+            <i ng-switch-when="childcare" class="ui find icon"></i>
+            <i ng-switch-when="traveling" class="ui travel icon"></i>
+            <i ng-switch-when="bank/bills" class="ui money icon"></i>
+            <i ng-switch-when="work" class="ui laptop icon"></i>
+            <i ng-switch-when="study" class="ui university icon"></i>
+            <i ng-switch-when="fun" class="ui game icon"></i>
+            <i ng-switch-when="other" class="ui setting icon"></i>
+            <i ng-switch-default class="ui sun icon"></i>
+
+            <!-- <i class="ui {{task.type === 'pet' ? 'red paw' : task.type === 'study' ? 'university' : 'sun'}} icon"></i> -->
           </div>
           <div class="description left floated content" style="width: 200px; text-align: center">
             {{task.task_name}}
+          </div>
+          <div class="description left floated content" style="text-align: center" ng-switch="task.priority">
+            <i ng-switch-when = "1" class="ui red circle icon"></i>
+            <i ng-switch-when = "2" class="ui orange circle icon"></i>
+            <i ng-switch-when = "3" class="ui yellow circle icon"></i>
+            <i ng-switch-when = "4" class="ui olive circle icon"></i>
+            <i ng-switch-default class="ui grey circle icon"></i>
           </div>
           <div class="deadline right floated content" style="width: 400px; text-align: center">
             {{task.date |  date : 'HH:mm'}}
