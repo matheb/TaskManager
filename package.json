@@ -1,5 +1,5 @@
 {
-  "name": "zerda-reader-frontend",
+  "name": "task-manager",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,6 +7,7 @@
     "test": "test"
   },
   "dependencies": {
+    "lite-server": "^2.3.0",
     "semantic-ui": "^2.2.7"
   },
   "devDependencies": {
@@ -27,7 +28,9 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "webpack --watch"
+    "watch": "webpack --watch",
+    "lite": "lite-server --port 10001",
+    "start": "npm run lite"
   },
   "repository": {
     "type": "git",

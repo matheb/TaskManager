@@ -23,11 +23,11 @@ module.exports = angular.module('HomeController', ['ngRoute', 'ngAnimate']).cont
         data: {
           token: localStorage.token
         },
-        url: 'https://taskmanager-backend.gomix.me/tasks',
+        url: 'https://taskmanager-backend.glitch.me/tasks',
       }).then(function (data) {
         $scope.tasks = data.data;
         $scope.icon = $scope.setIcon(type);
-        console.log($scope.tasks);
+        console.log('tasks: ' + $scope.tasks);
       }).catch(function (data) {
         console.log('error');
       })
@@ -68,7 +68,7 @@ module.exports = angular.module('HomeController', ['ngRoute', 'ngAnimate']).cont
           reminder: $scope.checked,
           checked: $scope.checked
         },
-        url: 'https://taskmanager-backend.gomix.me/addtask',
+        url: 'https://taskmanager-backend.glitch.me/addtask',
       }).then(function (data) {
         $scope.listTasks();
         $scope.task_name = '';
@@ -80,6 +80,7 @@ module.exports = angular.module('HomeController', ['ngRoute', 'ngAnimate']).cont
         $scope.checked = '';
         // $scope.tasks = data.data;
         // console.log($scope.tasks);
+        console.log('tasks: ' + data.data );
       }).catch(function (data) {
         console.log('error');
       })
@@ -144,7 +145,7 @@ module.exports = angular.module('HomeController', ['ngRoute', 'ngAnimate']).cont
       data: {
         id: id
       },
-      url: 'https://taskmanager-backend.gomix.me/deletetask',
+      url: 'https://taskmanager-backend.glitch.me/deletetask',
     }).then(function (data) {
       $scope.listTasks();
     }).catch(function (data) {
@@ -169,7 +170,7 @@ module.exports = angular.module('HomeController', ['ngRoute', 'ngAnimate']).cont
         id: id,
         checked: check
       },
-      url: 'https://taskmanager-backend.gomix.me/checktask',
+      url: 'https://taskmanager-backend.glitch.me/checktask',
     }).then(function (data) {
       $scope.listTasks();
     }).catch(function (data) {
@@ -180,4 +181,4 @@ module.exports = angular.module('HomeController', ['ngRoute', 'ngAnimate']).cont
 
 }]);
 
-//module.exports = HomeController;
+// module.exports = HomeController;

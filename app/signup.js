@@ -8,7 +8,7 @@ module.exports = angular.module('SignUpController', ['ngRoute', 'ngAnimate']).co
           email: $scope.user.email,
           password: $scope.user.password,
         },
-        url: 'https://taskmanager-backend.gomix.me/registration',
+        url: 'https://taskmanager-backend.glitch.me/registration',
       }).then(function (data) {
         var respond = data.data;
         //console.log(respond);

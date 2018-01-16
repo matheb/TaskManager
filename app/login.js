@@ -10,7 +10,7 @@
           email: $scope.user.email,
           password: $scope.user.password,
         },
-        url: 'https://taskmanager-backend.gomix.me/login',
+        url: 'https://taskmanager-backend.glitch.me/login',
       }).then(function (data) {
         var respond = data.data;
         if (respond !== '') {
